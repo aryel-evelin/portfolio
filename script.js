@@ -62,7 +62,7 @@ function toggleLanguage() {
     updateLanguage(newLang);
 }
 
-// Funções de Compartilhamento
+// Funções de Compartilhamento Inteligente
 function shareLink() {
     const shareData = {
         title: 'Aryel Evelin | Copywriting, Roteiros & Storytelling | Fotografia',
