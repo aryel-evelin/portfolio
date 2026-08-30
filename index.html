@@ -219,63 +219,7 @@
         <p data-pt="© 2026 Aryel Evelin. Todos os direitos reservados." data-en="© 2026 Aryel Evelin. All rights reserved.">© 2026 Aryel Evelin. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPTS: SLIDESHOW E SUPORTE A MULTI-IDIOMA COM LINK DINÂMICO DE CURRÍCULO -->
-    <script>
-        // Carrossel em Fade
-        const slides = document.querySelectorAll('.fade-bg');
-        let currentSlide = 0;
-
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 4000);
-
-        // Gerenciamento de Idioma e Links Dinâmicos (PT | EN)
-        let currentLang = localStorage.getItem('pref_lang');
-
-        if (!currentLang) {
-            const browserLang = navigator.language || navigator.userLanguage;
-            currentLang = browserLang.toLowerCase().startsWith('pt') ? 'pt' : 'en';
-        }
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('pref_lang', lang);
-            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-            document.getElementById('lang-text').textContent = lang === 'pt' ? 'EN' : 'PT';
-
-            // Atualização dinâmica do link do currículo conforme o idioma
-            const resumeLink = document.getElementById('resume-link');
-            if (resumeLink) {
-                if (lang === 'pt') {
-                    resumeLink.href = 'https://drive.google.com/file/d/1-JLVTj67mVrQ7Yc-ajlPTR9KSA7_yUqC/view?usp=sharing';
-                } else {
-                    resumeLink.href = 'https://drive.google.com/file/d/1x4Hbnjfi8YZfb52G-fyPQ2_ri9zsidI7/view?usp=sharing';
-                }
-            }
-
-            document.querySelectorAll('[data-pt]').forEach(el => {
-                const text = el.getAttribute(`data-${lang}`);
-                if (text) {
-                    if (el.children.length > 0 && el.querySelector('strong')) {
-                        const strongText = el.querySelector('strong').outerHTML;
-                        el.innerHTML = strongText + ' ' + text.split(': ')[1];
-                    } else {
-                        el.textContent = text;
-                    }
-                }
-            });
-        }
-
-        function toggleLanguage() {
-            const newLang = currentLang === 'pt' ? 'en' : 'pt';
-            updateLanguage(newLang);
-        }
-
-        // Aplica o idioma ao carregar a página
-        document.addEventListener('DOMContentLoaded', () => updateLanguage(currentLang));
-    </script>
+    <!-- SCRIPT EXTERNO DA APLICAÇÃO -->
+    <script src="script.js"></script>
 </body>
 </html>
