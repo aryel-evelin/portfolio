@@ -23,19 +23,25 @@ function updateLanguage(lang) {
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
     document.getElementById('lang-text').textContent = lang === 'pt' ? 'EN' : 'PT';
 
-    // Atualização dinâmica dos links locais (Currículo e Portfólios)
+    // Seleção de todos os elementos de links de currículo e portfólios (Topo e Cards)
     const resumeLink = document.getElementById('resume-link');
     const copyPortfolioLink = document.getElementById('copy-portfolio-link');
     const photoPortfolioLink = document.getElementById('photo-portfolio-link');
+    const cardCopyLink = document.getElementById('card-copy-link');
+    const cardPhotoPortfolioLink = document.getElementById('card-photo-portfolio-link');
 
     if (lang === 'pt') {
         if (resumeLink) resumeLink.href = './curriculo_pt.pdf';
         if (copyPortfolioLink) copyPortfolioLink.href = './portfolio_copy_pt.pdf';
         if (photoPortfolioLink) photoPortfolioLink.href = './portfolio_fotografia_pt.pdf';
+        if (cardCopyLink) cardCopyLink.href = './portfolio_copy_pt.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = './portfolio_fotografia_pt.pdf';
     } else {
         if (resumeLink) resumeLink.href = './curriculo_en.pdf';
         if (copyPortfolioLink) copyPortfolioLink.href = './portfolio_copy_en.pdf';
         if (photoPortfolioLink) photoPortfolioLink.href = './portfolio_fotografia_en.pdf';
+        if (cardCopyLink) cardCopyLink.href = './portfolio_copy_en.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = './portfolio_fotografia_en.pdf';
     }
 
     document.querySelectorAll('[data-pt]').forEach(el => {
