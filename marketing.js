@@ -11,26 +11,27 @@ function updateLanguage(lang) {
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
     document.getElementById('lang-text').textContent = lang === 'pt' ? 'EN' : 'PT';
 
-    // Selecionando todos os botões que precisam de links traduzidos
     const resumeLink = document.getElementById('resume-link');
     const copyPortfolioLink = document.getElementById('copy-portfolio-link');
     const photoPortfolioLink = document.getElementById('photo-portfolio-link');
     const cardCopyLink = document.getElementById('card-copy-link');
     const cardPhotoPortfolioLink = document.getElementById('card-photo-portfolio-link');
 
-    // Aplicando os links corretos de acordo com os nomes dos seus PDFs na raiz
+    // FIX: Forçando o caminho absoluto do repositório para evitar o Erro 404 no GitHub Pages
+    const basePath = '/portfolio/';
+
     if (lang === 'pt') {
-        if (resumeLink) resumeLink.href = '../curriculo_marketing_pt.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = '../portfolio_copy_pt.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = '../portfolio_fotografia_pt.pdf';
-        if (cardCopyLink) cardCopyLink.href = '../portfolio_copy_pt.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = '../portfolio_fotografia_pt.pdf';
+        if (resumeLink) resumeLink.href = basePath + 'curriculo_marketing_pt.pdf';
+        if (copyPortfolioLink) copyPortfolioLink.href = basePath + 'portfolio_copy_pt.pdf';
+        if (photoPortfolioLink) photoPortfolioLink.href = basePath + 'portfolio_fotografia_pt.pdf';
+        if (cardCopyLink) cardCopyLink.href = basePath + 'portfolio_copy_pt.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = basePath + 'portfolio_fotografia_pt.pdf';
     } else {
-        if (resumeLink) resumeLink.href = '../curriculo_marketing_en.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = '../portfolio_copy_en.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = '../portfolio_fotografia_en.pdf';
-        if (cardCopyLink) cardCopyLink.href = '../portfolio_copy_en.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = '../portfolio_fotografia_en.pdf';
+        if (resumeLink) resumeLink.href = basePath + 'curriculo_marketing_en.pdf';
+        if (copyPortfolioLink) copyPortfolioLink.href = basePath + 'portfolio_copy_en.pdf';
+        if (photoPortfolioLink) photoPortfolioLink.href = basePath + 'portfolio_fotografia_en.pdf';
+        if (cardCopyLink) cardCopyLink.href = basePath + 'portfolio_copy_en.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = basePath + 'portfolio_fotografia_en.pdf';
     }
 
     // Tradução dos textos na página
