@@ -17,21 +17,21 @@ function updateLanguage(lang) {
     const cardCopyLink = document.getElementById('card-copy-link');
     const cardPhotoPortfolioLink = document.getElementById('card-photo-portfolio-link');
 
-    // FIX: Forçando o caminho absoluto do repositório para evitar o Erro 404 no GitHub Pages
-    const basePath = '/portfolio/';
+    // URL base fixa e absoluta para o seu GitHub Pages
+    const baseUrl = 'https://aryel-evelin.github.io/portfolio/';
 
     if (lang === 'pt') {
-        if (resumeLink) resumeLink.href = basePath + 'curriculo_marketing_pt.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = basePath + 'portfolio_copy_pt.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = basePath + 'portfolio_fotografia_pt.pdf';
-        if (cardCopyLink) cardCopyLink.href = basePath + 'portfolio_copy_pt.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = basePath + 'portfolio_fotografia_pt.pdf';
+        if (resumeLink) resumeLink.href = baseUrl + 'curriculo_marketing_pt.pdf';
+        if (copyPortfolioLink) copyPortfolioLink.href = baseUrl + 'portfolio_copy_pt.pdf';
+        if (photoPortfolioLink) photoPortfolioLink.href = baseUrl + 'portfolio_fotografia_pt.pdf';
+        if (cardCopyLink) cardCopyLink.href = baseUrl + 'portfolio_copy_pt.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = baseUrl + 'portfolio_fotografia_pt.pdf';
     } else {
-        if (resumeLink) resumeLink.href = basePath + 'curriculo_marketing_en.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = basePath + 'portfolio_copy_en.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = basePath + 'portfolio_fotografia_en.pdf';
-        if (cardCopyLink) cardCopyLink.href = basePath + 'portfolio_copy_en.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = basePath + 'portfolio_fotografia_en.pdf';
+        if (resumeLink) resumeLink.href = baseUrl + 'curriculo_marketing_en.pdf';
+        if (copyPortfolioLink) copyPortfolioLink.href = baseUrl + 'portfolio_copy_en.pdf';
+        if (photoPortfolioLink) photoPortfolioLink.href = baseUrl + 'portfolio_fotografia_en.pdf';
+        if (cardCopyLink) cardCopyLink.href = baseUrl + 'portfolio_copy_en.pdf';
+        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = baseUrl + 'portfolio_fotografia_en.pdf';
     }
 
     // Tradução dos textos na página
