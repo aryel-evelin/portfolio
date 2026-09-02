@@ -12,38 +12,17 @@ function updateLanguage(lang) {
     document.getElementById('lang-text').textContent = lang === 'pt' ? 'EN' : 'PT';
 
     const resumeLink = document.getElementById('resume-link');
-    const copyPortfolioLink = document.getElementById('copy-portfolio-link');
-    const photoPortfolioLink = document.getElementById('photo-portfolio-link');
-    const cardCopyLink = document.getElementById('card-copy-link');
-    const cardPhotoPortfolioLink = document.getElementById('card-photo-portfolio-link');
-
-    // URL base fixa e absoluta para o seu GitHub Pages
-    const baseUrl = 'https://aryel-evelin.github.io/portfolio/';
 
     if (lang === 'pt') {
-        if (resumeLink) resumeLink.href = baseUrl + 'curriculo_marketing_pt.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = baseUrl + 'portfolio_copy_pt.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = baseUrl + 'portfolio_fotografia_pt.pdf';
-        if (cardCopyLink) cardCopyLink.href = baseUrl + 'portfolio_copy_pt.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = baseUrl + 'portfolio_fotografia_pt.pdf';
+        if (resumeLink) resumeLink.href = '../curriculo_pt.pdf';
     } else {
-        if (resumeLink) resumeLink.href = baseUrl + 'curriculo_marketing_en.pdf';
-        if (copyPortfolioLink) copyPortfolioLink.href = baseUrl + 'portfolio_copy_en.pdf';
-        if (photoPortfolioLink) photoPortfolioLink.href = baseUrl + 'portfolio_fotografia_en.pdf';
-        if (cardCopyLink) cardCopyLink.href = baseUrl + 'portfolio_copy_en.pdf';
-        if (cardPhotoPortfolioLink) cardPhotoPortfolioLink.href = baseUrl + 'portfolio_fotografia_en.pdf';
+        if (resumeLink) resumeLink.href = '../curriculo_en.pdf';
     }
 
-    // Tradução dos textos na página
     document.querySelectorAll('[data-pt]').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
         if (text) {
-            if (el.children.length > 0 && el.querySelector('strong')) {
-                const strongText = el.querySelector('strong').outerHTML;
-                el.innerHTML = strongText + ' ' + text.split(': ')[1];
-            } else {
-                el.textContent = text;
-            }
+            el.textContent = text;
         }
     });
 }
@@ -53,11 +32,14 @@ function toggleLanguage() {
     updateLanguage(newLang);
 }
 
-// Função de Compartilhamento
-function shareLink() {
+function shareMarketing() {
+    const isPt = currentLang === 'pt';
+    
     const shareData = {
-        title: 'Aryel Evelin | Marketing & Ads',
-        text: 'Growth, Conteúdo Estratégico & Storytelling',
+        title: 'Aryel Evelin | Marketing & Ads Portfolio',
+        text: isPt 
+            ? 'Confira o portfólio de Marketing, Growth, Ads e Storytelling de Aryel Evelin.' 
+            : 'Explore Aryel Evelin\'s Marketing, Growth, Ads, and Storytelling portfolio.',
         url: window.location.href
     };
 
@@ -65,9 +47,9 @@ function shareLink() {
         navigator.share(shareData).catch(() => {});
     } else {
         navigator.clipboard.writeText(shareData.url);
-        const alertMsg = document.documentElement.lang === 'pt-BR' 
-            ? 'Link copiado para a área de transferência!' 
-            : 'Link copied to clipboard!';
+        const alertMsg = isPt 
+            ? 'Link do portfólio de Marketing copiado para a área de transferência!' 
+            : 'Marketing portfolio link copied to clipboard!';
         alert(alertMsg);
     }
 }
